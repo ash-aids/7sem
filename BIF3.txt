@@ -1,0 +1,13 @@
+Open Pyrx
+File 
+Load molecule
+Select 6m0j file
+Expand 6m0j unselect E
+Right-click A->autodock -make macromolecule
+Open babel
+Click Insert icon conformer 3d file
+Right-click  on 1353 then minimize the selected 
+Right-click 135 then convert selected to auto dock (pdbqt)
+Click vinawizard
+Click start
+Forward
