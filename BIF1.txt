@@ -1,0 +1,72 @@
+pip install biopython
+
+from Bio.Seq import Seq
+from Bio.SeqUtils import gc_fraction
+
+# DNA sequence provided for analysis
+dna_sequence = "AGTCAGTAGACTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAGCTA"
+
+# Create a Biopython Seq object
+seq = Seq(dna_sequence)
+
+# Function to find motifs in the sequence
+def find_motifs(sequence, motif):
+    positions = [i for i in range(len(sequence) - len(motif) + 1) if sequence[i:i + len(motif)] == motif]
+    return positions
+
+# Function to identify coding regions based on start and stop codons
+def identify_coding_regions(sequence):
+    start_codon = "ATG"
+    stop_codons = ["TAA", "TAG", "TGA"]
+    coding_regions = []
+    i = 0
+
+    while i < len(sequence):
+        if sequence[i:i + 3] == start_codon:
+            start_index = i
+            i += 3
+            while i < len(sequence):
+                if sequence[i:i + 3] in stop_codons:
+                    stop_index = i + 3
+                    coding_regions.append((start_index, stop_index))
+                    break
+                i += 3
+        else:
+            i += 1
+
+    return coding_regions
+
+# Find motifs in the sequence
+motif1 = "AGCTAGCTA"
+motif2 = "CTAGCTAGC"
+motif1_positions = find_motifs(seq, motif1)
+motif2_positions = find_motifs(seq, motif2)
+
+# Calculate GC content
+gc_content = gc_fraction(seq)
+
+# Identify coding regions
+coding_regions = identify_coding_regions(seq)
+
+# Create a report
+report = "DNA Sequence Analysis Report\n\n"
+report += f"Provided DNA Sequence:\n{seq}\n\n"
+report += "Analysis 1: Finding Motifs\n"
+report += f"Motif 1 ({motif1}) found at positions: {motif1_positions}\n"
+report += f"Motif 2 ({motif2}) found at positions: {motif2_positions}\n\n"
+report += "Analysis 2: Calculating GC Content\n"
+report += f"GC Content: {gc_content:.2%}\n\n"
+report += "Analysis 3: Identifying Coding Regions\n"
+if len(coding_regions) > 0:
+    report += "Coding regions found:\n"
+    for start, stop in coding_regions:
+        report += f"Start: {start} Stop: {stop}\n"
+else:
+    report += "No coding regions found in the sequence."
+
+# Save the report to a file
+with open("dna_sequence_analysis_report.txt", "w") as report_file:
+    report_file.write(report)
+
+print("Analysis report generated as 'dna_sequence_analysis_report.txt'.")
+

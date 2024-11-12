@@ -1,0 +1,84 @@
+### **Assignment: Machine Learning for Genomic Data** 
+
+Task: Apply machine learning algorithms, such as random forests or support vector machines, to classify genomic data based on specific features or markers. 
+
+Deliverable: A comprehensive analysis report presenting the classification results, model performance evaluation, and insights into the predictive features. 
+
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, accuracy_score
+from sklearn.preprocessing import LabelEncoder
+import numpy as np
+import pandas as pd
+
+df = pd.read_csv('Genomics.csv')
+# Fill NaN values with 0 or any suitable value before processing
+df.fillna(0, inplace=True)
+
+# Encoding the categorical variable 'variant_name' as labels
+label_encoder = LabelEncoder()
+df['variant_label'] = label_encoder.fit_transform(df['variant_name'])
+
+# Features (X) and target (y)
+X = df[['specimens', 'percentage', 'specimens_7d_avg', 'percentage_7d_avg']].values
+y = df['variant_label'].values
+
+# Splitting the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Initializing and training the Random Forest Classifier
+rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_classifier.fit(X_train, y_train)
+
+# Making predictions
+y_pred = rf_classifier.predict(X_test)
+
+# Adjusting target names based on the unique classes in the test set
+unique_labels = np.unique(y_test)
+target_names = [label_encoder.inverse_transform([i])[0] for i in unique_labels]
+
+# Evaluating the model
+accuracy = accuracy_score(y_test, y_pred)
+classification_rep = classification_report(y_test, y_pred, target_names=target_names)
+
+# Displaying the accuracy and classification report
+print(f"Accuracy: {accuracy:.2f}")
+print("Classification Report:")
+print(classification_rep)
+
+from sklearn.svm import SVC
+from sklearn.metrics import classification_report, accuracy_score
+
+# Initializing and training the Support Vector Classifier (SVM)
+svm_classifier = SVC(kernel='rbf', random_state=42)
+svm_classifier.fit(X_train, y_train)
+
+# Making predictions using the SVM model
+y_pred_svm = svm_classifier.predict(X_test)
+
+# Evaluating the SVM model
+accuracy_svm = accuracy_score(y_test, y_pred_svm)
+classification_rep_svm = classification_report(y_test, y_pred_svm, target_names=target_names)
+
+# Displaying the accuracy and classification report for the SVM model
+print(f"Accuracy (SVM): {accuracy_svm:.2f}")
+print("Classification Report (SVM):")
+print(classification_rep_svm)
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Data for accuracies
+models = ['Random Forest', 'SVM']
+accuracies = [accuracy, accuracy_svm]
+
+# Creating a bar plot
+sns.barplot(x=models, y=accuracies)
+
+# Adding labels and title
+plt.title('Comparison of Model Accuracies')
+plt.xlabel('Model')
+plt.ylabel('Accuracy')
+
+# Displaying the plot
+plt.show()
