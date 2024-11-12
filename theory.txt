@@ -1,0 +1,94 @@
+BIF
+
+asgn 1
+1. **DNA (Deoxyribonucleic Acid)**: DNA is the molecule that carries the genetic instructions for the development, functioning, growth, and reproduction of all known organisms and many viruses. It consists of two strands forming a double helix, with nucleotide bases (adenine, thymine, cytosine, and guanine) that encode genetic information.
+
+2. **RNA (Ribonucleic Acid)**: RNA is a single-stranded molecule involved in various cellular processes, mainly translating genetic information from DNA into proteins. It has a similar structure to DNA but contains uracil instead of thymine. RNA types include mRNA (messenger RNA), tRNA (transfer RNA), and rRNA (ribosomal RNA).
+
+3. **GC Content**: This is the percentage of guanine (G) and cytosine (C) bases in a DNA or RNA molecule. GC content is an important feature in genetics and molecular biology because regions with higher GC content tend to have more stable DNA structures, which can affect gene expression and evolution.
+
+4. **Coding Regions**: Also known as **exons**, these are parts of a gene's DNA or RNA sequence that directly code for proteins. In eukaryotes, coding regions are separated by non-coding regions (introns) that are removed during RNA processing.
+
+==============
+
+asgn2
+1. **RNA Sequence**: An RNA sequence is the order of nucleotide bases (adenine, uracil, cytosine, and guanine) in an RNA molecule. RNA sequencing (RNA-seq) is a technique used to determine the sequence of RNA in a sample, allowing researchers to study gene expression and identify various RNA types.
+
+2. **Differential Gene Expression Analysis**: This is the process of comparing gene expression levels between different groups or conditions (e.g., healthy vs. diseased) to identify genes that are upregulated or downregulated. It’s crucial for understanding biological responses, discovering biomarkers, and studying disease mechanisms.
+
+3. **Functional Annotations**: Functional annotation involves linking genes or proteins to known biological functions, pathways, or cellular components. This helps to interpret gene or protein roles in biological processes and is used to make sense of large datasets from experiments like RNA-seq or whole-genome studies.
+
+=================
+
+asgn3
+1. **Molecular Docking**: Molecular docking is a computational technique used to predict how a small molecule, such as a drug or ligand, binds to a target protein. By simulating the interaction between the molecules, it helps identify the preferred binding orientation and strength of the interaction, which is key for drug design.
+
+2. **Virtual Screening**: Virtual screening is a method in which large libraries of compounds are computationally analyzed to identify those most likely to bind to a target protein effectively. It’s used in drug discovery to rapidly and cost-effectively prioritize compounds for further experimental testing.
+
+==========
+
+asgn4
+1. **Genomic Data**: Genomic data refers to information about an organism's complete DNA sequence, including all of its genes. It’s used in genetics and bioinformatics to study gene function, genetic variations, and disease links.
+
+2. **Random Forests**: Random forests is a machine learning algorithm that uses a collection of decision trees to make predictions. By averaging the results of multiple trees, it improves accuracy and reduces overfitting, making it effective for classification and regression tasks.
+
+3. **SVM (Support Vector Machine)**: SVM is a supervised machine learning algorithm used for classification and regression. It works by finding the optimal boundary (or hyperplane) that best separates data points into different classes, often performing well in high-dimensional spaces.
+
+====================
+====================
+
+IR
+
+asgn1
+1. **Text Preprocessing**: Text preprocessing is the process of cleaning and transforming raw text data into a structured format suitable for analysis or modeling. This typically includes tasks like converting text to lowercase, removing punctuation, tokenization, and removing unnecessary characters.
+
+2. **Stop Word Removal**: Stop word removal involves eliminating common words (like "the," "is," "and") from text data because they carry little meaningful information for text analysis. Removing them reduces data noise and improves processing efficiency.
+
+3. **Stemming**: Stemming is the process of reducing words to their root or base form (e.g., "running" becomes "run"). This simplifies the data by grouping similar words with different endings, which can improve text analysis performance in some cases.
+
+===================
+
+asgn2
+**Inverted Indexing**: Inverted indexing is a data structure commonly used in search engines to map words (terms) to the documents (or locations) in which they appear. It enables fast full-text searches by listing each unique term in a corpus and linking it to a list of documents containing that term.
+
+**Key Concepts**:
+
+1. **Terms and Posting Lists**: Each term (word) in the inverted index has an associated *posting list*, which is a list of documents where the term appears. This allows for quick retrieval of documents containing specific terms.
+
+2. **Term Frequency and Position**: Some inverted indexes store additional information, like *term frequency* (how often the term appears in a document) and *position* (where in the document the term appears). This extra data helps refine search relevance and enables proximity-based searches.
+
+===================
+
+asgn3
+Here’s a brief explanation of each:
+
+1. **Bayesian Network**: A Bayesian Network is a graphical model representing probabilistic relationships among a set of variables. It’s a directed acyclic graph where nodes represent variables, and edges represent dependencies. Bayesian networks are used in decision-making, reasoning, and predicting outcomes based on uncertain data.
+
+2. **Conditional Probability Tables (CPTs)**: In Bayesian networks, each node has a Conditional Probability Table that quantifies the probabilities of the node given its parent nodes. CPTs list the probabilities of each possible value of a variable conditioned on different combinations of its parent variables’ values. This helps calculate joint probabilities across the network.
+
+========================
+
+asgn4
+**Email Spam Filtering**: Email spam filtering is the process of automatically identifying and separating unwanted or harmful emails (spam) from legitimate emails. It uses machine learning and statistical methods to analyze email content, sender information, and other features to classify emails as "spam" or "not spam."
+
+**Key Techniques**:
+
+1. **Text Analysis**: By examining words, phrases, and patterns commonly associated with spam, the filter can identify likely spam emails.
+
+2. **Machine Learning Models**: Algorithms like Naive Bayes, Support Vector Machines, and deep learning models are trained on large datasets of labeled spam and non-spam emails to accurately classify incoming messages. 
+
+This process helps reduce phishing, scams, and unwanted content in inboxes.
+
+=============================
+
+asgn5
+**Agglomerative Hierarchical Clustering**: This is a type of hierarchical clustering that builds clusters from the bottom up. Starting with each data point as its own cluster, it iteratively merges the two closest clusters until all points are combined into a single cluster or a specified number of clusters.
+
+**Key Steps**:
+
+1. **Calculate Distance**: Begin by calculating the distance between each pair of data points.
+
+2. **Merge Clusters**: At each step, merge the pair of clusters with the smallest distance (closest similarity). This process repeats until the stopping criterion (like a set number of clusters) is met.
+
+This method produces a **dendrogram**, a tree-like diagram that visualizes the clustering hierarchy, making it useful for understanding data structure at different levels of similarity.
+
